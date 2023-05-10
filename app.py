@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,url_for
 
 app = Flask(__name__)
 
@@ -7,16 +7,9 @@ app = Flask(__name__)
 def hello_world():  # put application's code here
     return 'Hello World!'
 
+import porto
+app.register_blueprint(porto.bp)
 
 
 
 
-app.route("/porto")
-def porto():
-    return "<p>This is my porto</p>"
-        #render_template("porto.html")
-
-
-
-if __name__ == '__main__':
-    app.run()
